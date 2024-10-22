@@ -3,12 +3,20 @@ import PropTypes from "prop-types";
 export default function Characters(props) {
 
     // Desestructura
-    const { characters, setCharacters } = props
+    const { characters, setCharacters, setUrl, infoApi, setInfoApi } = props
     console.log(characters)
 
     const resetCharacters = () => {
         setCharacters(null);
         console.log("reiniciando")
+    }
+
+    const nextPage = () => {
+        setUrl(infoApi.next);
+    }
+
+    const previousPage = () => {
+        setUrl(infoApi.prev)
     }
 
     return (
@@ -23,6 +31,7 @@ export default function Characters(props) {
                         <div>
                             <img src={character.image} alt={character.name} />
                         </div>
+
                         <div>
                             <h3>{character.name}</h3>
                             <h6>
@@ -43,6 +52,16 @@ export default function Characters(props) {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div>
+                Ir a la pagina
+                <div>
+                    {infoApi.prev === null || <span className="btn-search" onClick={previousPage}>Anterior</span>}
+                </div>
+
+                <div>
+                    <span className="btn-search" onClick={nextPage}>Siguiente</span>
+                </div>
             </div>
             <span className="back-home" onClick={resetCharacters}>Volver a la home</span>
         </div>

@@ -74,13 +74,12 @@ body {
   font-size: 16px;
 }
 
-.character-container .dead,
-.alive {
-  height: 0.5rem;
-  width: 0.5rem;
+.character-container .dead, .alive {
+  /* height: 0.5rem;
+  width: 0.5rem; */
   margin-right: 0.375rem;
   border-radius: 50%;
-  display: inline-block;
+  display: block;
 }
 
 .character-container .dead {
